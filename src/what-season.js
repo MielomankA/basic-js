@@ -15,6 +15,17 @@ export default function getSeason(date) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
 
+  if (date === undefined) return 'Unable to determine the time of year!';
+
+  if (
+    Object.prototype.toString.call(date) !== '[object Date]' ||
+    typeof date !== 'object' ||
+    Object.keys(date).length > 0 ||
+    !(date instanceof Date)
+  ) {
+    throw new Error('Invalid date!');
+  }
+
   let month = date.getMonth();
 
   switch (month) {
